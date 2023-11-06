@@ -1,0 +1,15 @@
+footer {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	height: 4vh;
+	padding: 0 1.2rem;
+	background-color: var(--color--footer);
+}
+.footer-text {
+	font-family: var(--font-family--headings);
+	font-size: 2.4rem;
+	font-weight: 900;
+	color: var(--color--accent);
+	user-select: none;
+}

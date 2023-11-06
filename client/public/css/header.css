@@ -1,0 +1,14 @@
+header {
+	padding: 0 2.0rem;
+	background-color: var(--color--header);
+	height: 8vh;
+	display: flex;
+	align-items: center;
+}
+.header-text {
+	font-family: var(--font-family--headings);
+	font-size: 6.0rem;
+	font-weight: 900;
+	color: var(--color--accent);
+	user-select: none;
+}

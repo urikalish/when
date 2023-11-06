@@ -1,0 +1,14 @@
+.hidden {
+	visibility: hidden !important;
+}
+.none {
+	display: none !important;
+}
+.transparent {
+	opacity: 0;
+}
+.ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

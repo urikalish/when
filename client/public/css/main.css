@@ -1,0 +1,82 @@
+:root {
+	--main-width: 100vw;
+	--main-height: 100vh;
+	font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: var(--color--body);
+	color: var(--color--text);
+	font-family: var(--font-family--default);
+	font-size: 1.6rem;
+	animation: fade-in-animation 1s;
+}
+.background {
+	position: absolute;
+	inset: 0;
+}
+.wrapper {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr;
+}
+main {
+	padding: 4vh;
+}
+.image {
+	height: 70vh;
+	max-width: 70vw;
+}
+.controls {
+	display: flex;
+	justify-content: center;
+	align-items: start;
+}
+.submit-button,
+.reload-button {
+	padding: 1rem 2rem;
+}
+.submit-button {
+	background-color: var(--color--gray--medium);
+	color: var(--color--gray--light);
+	pointer-events: none;
+}
+body[data-phase="wait-submit"] .submit-button {
+	background-color: var(--color--gray--lightest);
+	color: var(--color--gray--darkest);
+	pointer-events: auto;
+}
+body[data-phase="failure"] .submit-button,
+body[data-phase="success"] .submit-button {
+	display: none;
+}
+.reload-button {
+	background-color: var(--color--gray--lightest);
+	color: var(--color--gray--darkest);
+	pointer-events: auto;
+	display: none;
+}
+body[data-phase="failure"] .reload-button,
+body[data-phase="success"] .reload-button {
+	display: block;
+}
+.answer {
+	display: none;
+	place-items: center;
+	font-weight: 700;
+	opacity: 0;
+}

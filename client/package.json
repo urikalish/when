@@ -1,0 +1,40 @@
+{
+  "name": "when-client",
+  "description": "when",
+  "author": "Uri Kalish",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:urikalish/when.git"
+  },
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint --fix src/**/*.ts",
+    "clean": "rimraf tsc && rimraf public/js",
+    "compile": "tsc",
+    "bundle-dev": "rollup -c --environment build:development",
+    "bundle-prod": "rollup -c --environment build:production",
+    "bundle": "yarn bundle-prod && yarn bundle-dev",
+    "build": "yarn clean && yarn compile && yarn bundle",
+    "full": "yarn format && yarn lint && yarn build",
+    "serve": "http-server ./public --port 5548 --cors -c-1",
+    "post-checkout": "yarn && yarn build",
+    "post-merge": "yarn && yarn build",
+    "pre-commit": "yarn full"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/gtag.js": "^0.0.17",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.53.0",
+    "http-server": "^14.1.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.3.0",
+    "tslib": "^2.6.0",
+    "typescript": "^5.2.2"
+  }
+}
