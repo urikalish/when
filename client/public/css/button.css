@@ -1,7 +1,4 @@
-button,
-.button,
-button:focus-visible,
-.button:focus-visible {
+button {
 	border: none;
 	border-radius: 8px;
 	width: 16vh;
@@ -13,9 +10,14 @@ button:focus-visible,
 	color: var(--color--text--light);
 	cursor: pointer;
 }
+button:hover,
+button:focus-visible {
+	outline: none;
+	opacity: 0.95;
+}
 button:active,
 .button:active {
-	opacity: 0.8;
+	opacity: 0.9;
 }
 button.disabled,
 .button.disabled {
