@@ -1,12 +1,6 @@
 import { Answer } from './answer';
 import { Guess } from './guess';
-
-export enum Phase {
-	GAME_INIT = 'game-init',
-	USER_GUESS = 'user-guess',
-	SHOW_ANSWER = 'show-answer',
-	GAME_END = 'game-end',
-}
+import { Phase } from './phase';
 
 export class Game {
 	startTime = Date.now();

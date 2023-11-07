@@ -17,9 +17,10 @@ body {
 	padding: 0;
 	height: 100%;
 	background-color: var(--color--body);
-	color: var(--color--text);
+	color: var(--color--text--dark);
 	font-family: var(--font-family--default);
 	font-size: 1.6rem;
+	user-select: none;
 	animation: fade-in-animation 1s;
 }
 .background {
@@ -31,33 +32,38 @@ body {
 	inset: 0;
 	overflow: hidden;
 	display: grid;
-	grid-template-rows: auto 1fr auto;
+	grid-template-rows: repeat(3, auto);
 	grid-template-columns: 1fr;
 }
 main {
-	padding: 4vh;
+	height: 85vh;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+.image-panel {
+	display: flex;
+	align-items: center;
+	padding: 5vh;
 }
 .image {
-	height: 70vh;
-	max-width: 70vw;
+	height: 75vh;
+	max-width: 75vw;
+	box-shadow: 8px 8px 8px 4px #666;
+	transform: rotateZ(-2deg);
 }
-.controls {
-	display: flex;
-	justify-content: center;
-	align-items: start;
+.action-panel {
+	padding: 3vh;
+	text-align: center;
+}
+.year-selector {
+	width: 100%;
 }
 .submit-button,
 .reload-button {
-	padding: 1rem 2rem;
+	margin-top: 3vh;
 }
-.submit-button {
-	background-color: var(--color--gray--medium);
-	color: var(--color--gray--light);
-	pointer-events: none;
-}
-body[data-phase="wait-submit"] .submit-button {
-	background-color: var(--color--gray--lightest);
-	color: var(--color--gray--darkest);
+body[data-phase="user-guess"] .submit-button {
 	pointer-events: auto;
 }
 body[data-phase="failure"] .submit-button,
