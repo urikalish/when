@@ -56,7 +56,13 @@ export class UiService {
 		}
 		const infoElm = document.getElementById('answer-info');
 		if (infoElm) {
-			infoElm.textContent = answer.info.toString();
+			infoElm.replaceChildren();
+			answer.info.forEach(i => {
+				const infoSectionElm = document.createElement('p');
+				infoSectionElm.textContent = i;
+				infoSectionElm.classList.add('answer-info-section');
+				infoElm.appendChild(infoSectionElm);
+			});
 		}
 	}
 

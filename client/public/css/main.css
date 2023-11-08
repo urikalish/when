@@ -104,6 +104,7 @@ body[data-phase="show-answer"] .answer {
 	font-size: 2vh;
 	text-align: justify;
 }
+.answer-info-section {}
 .next-button {
 	display: none;
 	margin-top: 3vh;
