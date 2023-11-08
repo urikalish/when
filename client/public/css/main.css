@@ -69,8 +69,8 @@ main {
 }
 .image {
 	display: none;
-	height: 75vh;
-	max-width: 75vw;
+	height: calc(var(--u) * 75);
+	max-width: calc(var(--u) * 75);
 	box-shadow: 8px 8px 8px 4px #666;
 	transform: rotateZ(-2deg);
 }
