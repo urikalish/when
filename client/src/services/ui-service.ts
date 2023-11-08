@@ -1,4 +1,4 @@
-import { Action } from '../model/action';
+import { Answer } from '../model/answer';
 
 export class UiService {
 	static setWidthAndHeight() {
@@ -6,14 +6,24 @@ export class UiService {
 		document.documentElement.style.setProperty('--main-width', `${window.innerWidth}px`);
 	}
 
-	static createUI(onHandleAction) {
-		const inputElm = document.getElementById('year-selector');
-		inputElm?.addEventListener('input', event => {
-			onHandleAction(Action.CHANGE_YEAR_SELECTOR, (event.target as HTMLInputElement).value);
+	static createUI(onChangeYearSelection, onClickSubmit, onClickNext) {
+		const rangeInputElm = document.getElementById('year-selector');
+		rangeInputElm?.addEventListener('input', () => {
+			const strYear = (rangeInputElm as HTMLInputElement)?.value;
+			if (strYear) {
+				onChangeYearSelection(parseInt(strYear));
+			}
 		});
-		const submitElm = document.getElementById('submit-button');
-		submitElm?.addEventListener('click', () => {
-			onHandleAction(Action.SUBMIT_GUESS, (inputElm as HTMLInputElement)?.value);
+		const submitBtnElm = document.getElementById('submit-button');
+		submitBtnElm?.addEventListener('click', () => {
+			const strYear = (rangeInputElm as HTMLInputElement)?.value;
+			if (strYear) {
+				onClickSubmit(parseInt(strYear));
+			}
+		});
+		const nextBtnElm = document.getElementById('next-button');
+		nextBtnElm?.addEventListener('click', () => {
+			onClickNext();
 		});
 	}
 
@@ -35,9 +45,24 @@ export class UiService {
 		}
 	}
 
-	static init(onHandleAction) {
+	static showAnswer(answer: Answer) {
+		const yearElm = document.getElementById('answer-year');
+		if (yearElm) {
+			yearElm.textContent = answer.year.toString();
+		}
+		const titleElm = document.getElementById('answer-title');
+		if (titleElm) {
+			titleElm.textContent = answer.title.toString();
+		}
+		const infoElm = document.getElementById('answer-info');
+		if (infoElm) {
+			infoElm.textContent = answer.info.toString();
+		}
+	}
+
+	static init(onChangeYearSelection, onClickSubmit, onClickNext) {
 		window.addEventListener('resize', UiService.setWidthAndHeight);
 		UiService.setWidthAndHeight();
-		this.createUI(onHandleAction);
+		this.createUI(onChangeYearSelection, onClickSubmit, onClickNext);
 	}
 }

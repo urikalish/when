@@ -1,13 +1,13 @@
 button {
 	border: none;
-	border-radius: 8px;
-	width: 16vh;
-	height: 8vh;
-	font-size: 5vh;
+	border-radius: 4px;
+	width: 12vh;
+	height: 6vh;
+	font-size: 3vh;
 	font-family: "Noto Serif Hebrew", serif;
 	font-weight: 700;
-	background-color: var(--color--accent);
-	color: var(--color--text--light);
+	background-color: var(--color--blue);
+	color: var(--color--cream--light);
 	cursor: pointer;
 }
 button:hover,
@@ -15,12 +15,10 @@ button:focus-visible {
 	outline: none;
 	opacity: 0.95;
 }
-button:active,
-.button:active {
+button:active {
 	opacity: 0.9;
 }
-button.disabled,
-.button.disabled {
+button.disabled {
 	background-color: var(--color--gray--medium) !important;
 	color: var(--color--gray--light) !important;
 	pointer-events: none;

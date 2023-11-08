@@ -9,13 +9,5 @@
 	--color--cream--light: #eae8dd;
 	--color--cream--dark: #e1dece;
 	--color--blue: #568;
-
-	--color--body: var(--color--cream--light);
-	--color--header: var(--color--cream--dark);
-	--color--footer: var(--color--cream--dark);
-
-	--color--text--light: var(--color--cream--light);
-	--color--text--dark: var(--color--gray--darkest);
-
-	--color--accent: var(--color--blue);
+	--color--red: #856;
 }

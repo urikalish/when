@@ -1,15 +1,15 @@
 footer {
+	height: 5vh;
 	display: flex;
 	justify-content: end;
 	align-items: center;
-	height: 5vh;
-	background-color: var(--color--footer);
+	background-color: var(--color--cream--dark);
 }
 .footer-text {
 	margin-left: 1vh;
 	font-size: 2.5vh;
 	font-family: var(--font-family--headings);
 	font-weight: 900;
-	color: var(--color--accent);
+	color: var(--color--blue);
 	white-space: nowrap;
 }

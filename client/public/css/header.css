@@ -1,14 +1,14 @@
 header {
-	background-color: var(--color--header);
 	height: 10vh;
 	display: flex;
 	align-items: center;
+	background-color: var(--color--cream--dark);
 }
 .header-text {
 	margin-right: 2vh;
 	font-size: 7vh;
 	font-family: var(--font-family--headings);
 	font-weight: 900;
-	color: var(--color--accent);
+	color: var(--color--blue);
 	white-space: nowrap;
 }

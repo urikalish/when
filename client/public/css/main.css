@@ -16,8 +16,8 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-color: var(--color--body);
-	color: var(--color--text--dark);
+	background-color: var(--color--cream--light);
+	color: var(--color--gray--darkest);
 	font-family: var(--font-family--default);
 	font-size: 1.6rem;
 	user-select: none;
@@ -47,46 +47,69 @@ main {
 	padding: 5vh;
 }
 .image {
+	display: none;
 	height: 75vh;
 	max-width: 75vw;
 	box-shadow: 8px 8px 8px 4px #666;
 	transform: rotateZ(-2deg);
 }
+body[data-phase="user-guess"] .image,
+body[data-phase="show-answer"] .image {
+	display: inline-block;
+}
 .action-panel {
-	padding: 3vh;
+	padding: 6vh 2vh 0 5vh;
 	text-align: center;
 }
 .year-selector {
+	display: none;
 	width: 100%;
+	animation: fade-in-animation 1s;
+}
+body[data-phase="user-guess"] .year-selector {
+	display: inline-block;
 }
 .year-selector:focus-visible {
 	outline: none;
 	opacity: 0.9;
 }
-.submit-button,
-.reload-button {
+.submit-button {
+	display: none;
 	margin-top: 3vh;
+	animation: fade-in-animation 1s;
 }
 body[data-phase="user-guess"] .submit-button {
-	pointer-events: auto;
-}
-body[data-phase="failure"] .submit-button,
-body[data-phase="success"] .submit-button {
-	display: none;
-}
-.reload-button {
-	background-color: var(--color--gray--lightest);
-	color: var(--color--gray--darkest);
-	pointer-events: auto;
-	display: none;
-}
-body[data-phase="failure"] .reload-button,
-body[data-phase="success"] .reload-button {
-	display: block;
+	display: inline-block;
 }
 .answer {
 	display: none;
-	place-items: center;
-	font-weight: 700;
-	opacity: 0;
+	text-align: right;
 }
+body[data-phase="show-answer"] .answer {
+	display: block;
+	animation: fade-in-animation 1s;
+}
+.answer-year {
+	display: inline;
+	color: var(--color--red);
+	font-size: 4vh;
+	font-weight: 900;
+}
+.answer-title {
+	display: inline;
+	font-size: 3vh;
+	font-weight: 900;
+}
+.answer-info {
+	font-size: 2vh;
+	text-align: justify;
+}
+.next-button {
+	display: none;
+	margin-top: 3vh;
+	animation: fade-in-animation 1s;
+}
+body[data-phase="show-answer"] .next-button {
+	display: inline-block;
+}
+
