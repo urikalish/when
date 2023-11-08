@@ -59,6 +59,10 @@ main {
 .year-selector {
 	width: 100%;
 }
+.year-selector:focus-visible {
+	outline: none;
+	opacity: 0.9;
+}
 .submit-button,
 .reload-button {
 	margin-top: 3vh;

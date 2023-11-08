@@ -10,11 +10,11 @@ import { Action } from '../model/action';
 export class GameService {
 	static game: Game = new Game();
 
-	static goGameInit() {
+	static goPhaseGameInit() {
 		// AnalyticsService.sendEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
 	}
 
-	static goUserGuess() {
+	static goPhaseUserGuess() {
 		const game = GameService.game;
 		const answer = game.answers[game.guesses.length];
 		const guess = new Guess();
@@ -26,15 +26,17 @@ export class GameService {
 		GameService.game.phase = phase;
 		UiService.markGamePhase(phase);
 		if (phase === Phase.GAME_INIT) {
-			GameService.goGameInit();
+			GameService.goPhaseGameInit();
 		} else if (phase === Phase.USER_GUESS) {
-			GameService.goUserGuess();
+			GameService.goPhaseUserGuess();
 		}
 	}
 
-	static handleAction(action, value) {
+	static handleAction(action: Action, value: string) {
 		if (action === Action.CHANGE_YEAR_SELECTOR) {
 			UiService.updateSubmitButtonText(value);
+		} else if (action === Action.SUBMIT_GUESS) {
+			alert(value);
 		}
 	}
 

@@ -11,6 +11,10 @@ export class UiService {
 		inputElm?.addEventListener('input', event => {
 			onHandleAction(Action.CHANGE_YEAR_SELECTOR, (event.target as HTMLInputElement).value);
 		});
+		const submitElm = document.getElementById('submit-button');
+		submitElm?.addEventListener('click', () => {
+			onHandleAction(Action.SUBMIT_GUESS, (inputElm as HTMLInputElement)?.value);
+		});
 	}
 
 	static markGamePhase(phase) {
