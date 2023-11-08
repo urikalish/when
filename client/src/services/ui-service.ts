@@ -32,10 +32,10 @@ export class UiService {
 		document.body.setAttribute('data-phase', phase);
 	}
 
-	static updateImageSource(src) {
+	static updateImageSource(imgSrc) {
 		const imgElm = document.getElementById('image');
 		if (imgElm) {
-			imgElm.setAttribute('src', src);
+			imgElm.setAttribute('src', imgSrc);
 		}
 	}
 

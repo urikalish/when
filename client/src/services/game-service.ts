@@ -20,7 +20,7 @@ export class GameService {
 		const answer = game.answers[game.guesses.length];
 		const guess = new Guess();
 		game.guesses.push(guess);
-		UiService.updateImageSource(`img/${answer.src}`);
+		UiService.updateImageSource(`img/${answer.img}`);
 	}
 
 	static handleChangeYearSelection(value: number) {

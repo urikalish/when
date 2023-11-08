@@ -1,5 +1,6 @@
 export class Answer {
-	src = '';
+	img = '';
+	link = '';
 	year = 0;
 	title = '';
 	info: string[] = [];

@@ -1,9 +1,9 @@
 button {
 	border: none;
 	border-radius: 4px;
-	width: 12vh;
-	height: 6vh;
-	font-size: 3vh;
+	width: calc(var(--h) * 0.12);
+	height: calc(var(--h) * 0.06);
+	font-size: calc(var(--h) * 0.03);;
 	font-family: var(--font-family--serif);
 	font-weight: 700;
 	background-color: var(--color--blue);

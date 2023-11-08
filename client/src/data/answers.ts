@@ -1,6 +1,7 @@
 export const answers = [
 	{
-		src: '123456.jpg',
+		img: '123456.jpg',
+		link: 'https://he.wikipedia.org/wiki/%D7%94%D7%9B%D7%A8%D7%96%D7%AA_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA',
 		year: 1948,
 		title: 'הכרזת העצמאות 1',
 		info: [
@@ -8,7 +9,8 @@ export const answers = [
 		],
 	},
 	{
-		src: '123456.jpg',
+		img: '123456.jpg',
+		link: 'https://he.wikipedia.org/wiki/%D7%94%D7%9B%D7%A8%D7%96%D7%AA_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA',
 		year: 1948,
 		title: 'הכרזת העצמאות 2',
 		info: [
@@ -17,7 +19,8 @@ export const answers = [
 		],
 	},
 	{
-		src: '123456.jpg',
+		img: '123456.jpg',
+		link: 'https://he.wikipedia.org/wiki/%D7%94%D7%9B%D7%A8%D7%96%D7%AA_%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA',
 		year: 1948,
 		title: 'הכרזת העצמאות 3',
 		info: [
