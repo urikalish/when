@@ -70,7 +70,7 @@ main {
 .image {
 	display: none;
 	height: calc(var(--u) * 75);
-	max-width: calc(var(--u) * 75);
+	max-width: calc(var(--w) * 75);
 	box-shadow: 8px 8px 8px 4px #666;
 	transform: rotateZ(-2deg);
 }
