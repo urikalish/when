@@ -4,7 +4,7 @@ button {
 	width: 12vh;
 	height: 6vh;
 	font-size: 3vh;
-	font-family: "Noto Serif Hebrew", serif;
+	font-family: var(--font-family--serif);
 	font-weight: 700;
 	background-color: var(--color--blue);
 	color: var(--color--cream--light);

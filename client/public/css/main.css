@@ -1,6 +1,7 @@
 :root {
-	--main-width: 100vw;
-	--main-height: 100vh;
+	--w: 100vw;
+	--h: 100vh;
+	--u: 1;
 	font-size: 62.5%;
 }
 *,
@@ -15,28 +16,48 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	height: var(--h);
+	overflow: hidden;
+	font-size: 1.6rem;
+	font-family: var(--font-family--sans);
 	background-color: var(--color--cream--light);
 	color: var(--color--gray--darkest);
-	font-family: var(--font-family--default);
-	font-size: 1.6rem;
 	user-select: none;
 	animation: fade-in-animation 1s;
 }
 .background {
 	position: absolute;
 	inset: 0;
+	height: var(--h);
 }
 .wrapper {
 	position: absolute;
-	inset: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: var(--h);
 	overflow: hidden;
-	display: grid;
-	grid-template-rows: repeat(3, auto);
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-direction: column;
+}
+header {
+	flex: 0 0 auto;
+	height: calc(var(--u) * 10);
+	display: flex;
+	align-items: center;
+	background-color: var(--color--cream--dark);
+}
+.header-text {
+	margin-right: 2vh;
+	font-size: 7vh;
+	font-family: var(--font-family--serif);
+	font-weight: 900;
+	color: var(--color--blue);
+	white-space: nowrap;
 }
 main {
-	height: 85vh;
+	flex: 1 1 auto;
+	height: calc(var(--u) * 85);
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr 1fr;
@@ -92,25 +113,44 @@ body[data-phase="show-answer"] .answer {
 .answer-year {
 	display: inline;
 	color: var(--color--red);
+	font-family: var(--font-family--serif);
 	font-size: 4vh;
 	font-weight: 900;
 }
 .answer-title {
 	display: inline;
+	color: var(--color--gray--darker);
+	font-family: var(--font-family--serif);
 	font-size: 3vh;
 	font-weight: 900;
 }
 .answer-info {
+	color: var(--color--gray--darkest);
 	font-size: 2vh;
 	text-align: justify;
 }
 .answer-info-section {}
 .next-button {
 	display: none;
-	margin-top: 3vh;
+	margin-top: 1vh;
 	animation: fade-in-animation 1s;
 }
 body[data-phase="show-answer"] .next-button {
 	display: inline-block;
 }
-
+footer {
+	flex: 0 0 auto;
+	height: calc(var(--u) * 5);
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	background-color: var(--color--cream--dark);
+}
+.footer-text {
+	margin-left: 1vh;
+	font-size: 2.5vh;
+	font-family: var(--font-family--serif);
+	font-weight: 900;
+	color: var(--color--blue);
+	white-space: nowrap;
+}

@@ -2,8 +2,9 @@ import { Answer } from '../model/answer';
 
 export class UiService {
 	static setWidthAndHeight() {
-		document.documentElement.style.setProperty('--main-height', `${window.innerHeight}px`);
-		document.documentElement.style.setProperty('--main-width', `${window.innerWidth}px`);
+		document.documentElement.style.setProperty('--w', `${window.innerWidth}px`);
+		document.documentElement.style.setProperty('--h', `${window.innerHeight}px`);
+		document.documentElement.style.setProperty('--u', `${window.innerHeight / 100}px`);
 	}
 
 	static createUI(onChangeYearSelection, onClickSubmit, onClickNext) {
