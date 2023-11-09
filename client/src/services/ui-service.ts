@@ -65,6 +65,10 @@ export class UiService {
 				infoElm.appendChild(infoSectionElm);
 			});
 		}
+		const linkElm = document.getElementById('answer-link');
+		if (linkElm) {
+			linkElm.setAttribute('href', answer.link);
+		}
 	}
 
 	static init(onChangeYearSelection, onClickSubmit, onClickNext) {

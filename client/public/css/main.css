@@ -86,7 +86,7 @@ body[data-phase="user-guess"] .submit-button {
 }
 .year-selector {
 	display: none;
-	margin-top: calc(var(--h) * 0.03);
+	margin-top: calc(var(--h) * 0.06);
 	width: 100%;
 	animation: fade-in-animation 1s;
 }
@@ -127,6 +127,17 @@ body[data-phase="show-answer"] .answer {
 	text-align: justify;
 }
 .answer-info-section {}
+.answer-link {
+	display: inline-block;
+	font-size: calc(var(--h) * 0.018);
+	text-decoration: none;
+	color: var(--color--blue);
+}
+.answer-link:hover,
+.answer-link:focus-visible {
+	outline: none;
+	opacity: 0.95;
+}
 .next-button {
 	display: none;
 	margin-top: calc(var(--h) * 0.02);
