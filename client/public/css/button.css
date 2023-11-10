@@ -5,9 +5,8 @@ button {
 	height: calc(var(--h) * 0.06);
 	font-size: calc(var(--h) * 0.03);;
 	font-family: var(--font-family--serif);
-	font-weight: 700;
 	background-color: var(--color--blue);
-	color: var(--color--cream--light);
+	color: #fff;
 	cursor: pointer;
 }
 button:hover,

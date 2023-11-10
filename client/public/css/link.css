@@ -1,0 +1,11 @@
+a {
+    display: inline-block;
+    font-size: calc(var(--h) * 0.018);
+    text-decoration: none;
+    color: var(--color--blue);
+}
+a:hover,
+a:focus-visible {
+    outline: none;
+    opacity: 0.95;
+}

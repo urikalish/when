@@ -8,6 +8,13 @@
 	--color--gray--darkest: #222;
 	--color--cream--light: #eae8dd;
 	--color--cream--dark: #e1dece;
-	--color--blue: #568;
-	--color--red: #856;
+
+	--color--blue--light: #006fd9;
+	--color--blue: #005EB8;
+	--color--blue--dark: #002f5c;
+
+	--color--red: #a44;
+
+	--color--link: var(--color--blue);
+
 }
