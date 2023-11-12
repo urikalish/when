@@ -100,7 +100,7 @@ body[data-phase="user-guess"] .year-selector {
 .answer {
 	display: none;
 	text-align: right;
-	max-height: calc(var(--h) * 0.66);
+	max-height: calc(var(--h) * 0.6);
 	overflow: hidden;
 }
 body[data-phase="show-answer"] .answer {
@@ -129,9 +129,19 @@ body[data-phase="show-answer"] .answer {
 }
 .answer-info-section {}
 .answer-link {}
+.more-count {
+	display: none;
+	font-size: calc(var(--h) * 0.016);
+	color: var(--color--gray--medium);
+	margin-top: calc(var(--h) * 0.02);
+	animation: fade-in-animation 1s;
+}
+body[data-phase="show-answer"] .more-count {
+	display: block;
+}
 .next-button {
 	display: none;
-	margin-top: calc(var(--h) * 0.02);
+	margin-top: calc(var(--h) * 0.01);
 	animation: fade-in-animation 1s;
 }
 body[data-phase="show-answer"] .next-button {

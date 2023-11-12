@@ -5,7 +5,6 @@ export class UiService {
 	static setWidthAndHeight() {
 		document.documentElement.style.setProperty('--w', `${window.innerWidth}px`);
 		document.documentElement.style.setProperty('--h', `${window.innerHeight}px`);
-		document.documentElement.style.setProperty('--u', `${window.innerHeight / 100}px`);
 	}
 
 	static createUI(config: Config, onClickSubmit, onClickNext) {
@@ -17,7 +16,10 @@ export class UiService {
 			rangeInputElm.addEventListener('input', () => {
 				const strYear = (rangeInputElm as HTMLInputElement)?.value;
 				if (strYear) {
-					UiService.updateSubmitButtonText(strYear);
+					const btnElm = document.getElementById('submit-button');
+					if (btnElm) {
+						btnElm.textContent = strYear;
+					}
 				}
 			});
 		}
@@ -39,25 +41,18 @@ export class UiService {
 		}
 	}
 
-	static markGamePhase(phase) {
+	static markGamePhase(phase: string) {
 		document.body.setAttribute('data-phase', phase);
 	}
 
-	static updateImageSource(imgSrc) {
+	static updateImageSource(imgSrc: string) {
 		const imgElm = document.getElementById('image');
 		if (imgElm) {
 			imgElm.setAttribute('src', imgSrc);
 		}
 	}
 
-	static updateSubmitButtonText(text: string) {
-		const btnElm = document.getElementById('submit-button');
-		if (btnElm) {
-			btnElm.textContent = text;
-		}
-	}
-
-	static showAnswer(answer: Answer) {
+	static showAnswer(answer: Answer, moreCount: number) {
 		const yearElm = document.getElementById('answer-year');
 		if (yearElm) {
 			yearElm.textContent = answer.year.toString();
@@ -80,9 +75,23 @@ export class UiService {
 		if (linkElm) {
 			linkElm.setAttribute('href', answer.link);
 		}
+		const moreCountElm = document.getElementById('more-count');
+		if (moreCountElm) {
+			if (moreCount > 1) {
+				moreCountElm.textContent = 'עוד ' + moreCount.toString() + ' שאלות';
+			} else if (moreCount === 1) {
+				moreCountElm.textContent = 'עוד שאלה אחת';
+			} else {
+				moreCountElm.textContent = '';
+			}
+		}
+		const nextBtnElm = document.getElementById('next-button');
+		if (nextBtnElm) {
+			nextBtnElm.textContent = moreCount > 0 ? 'הבא' : 'סיום';
+		}
 	}
 
-	static init(config, onClickSubmit, onClickNext) {
+	static init(config: Config, onClickSubmit: (year: number) => void, onClickNext: () => void) {
 		window.addEventListener('resize', UiService.setWidthAndHeight);
 		UiService.setWidthAndHeight();
 		this.createUI(config, onClickSubmit, onClickNext);

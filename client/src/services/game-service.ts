@@ -43,7 +43,7 @@ export class GameService {
 		const guess = game.guesses[index];
 		guess.endTime = Date.now();
 		guess.year = year;
-		UiService.showAnswer(game.answers[index]);
+		UiService.showAnswer(game.answers[index], game.answers.length - game.guesses.length);
 		GameService.setPhase(Phase.SHOW_ANSWER);
 		GameService.updateScore();
 	}
