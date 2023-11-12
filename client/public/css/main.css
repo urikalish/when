@@ -147,6 +147,31 @@ body[data-phase="show-answer"] .more-count {
 body[data-phase="show-answer"] .next-button {
 	display: inline-block;
 }
+.score {
+	display: none;
+	position: fixed;
+	left: calc(var(--w) * 0.5);
+	color: var(--color--blue--dark);
+	font-family: var(--font-family--script);
+	animation: fade-in-animation 1s;
+}
+.score.success {
+	color: var(--color--green);
+}
+.score.failure {
+	color: var(--color--red);
+}
+.score-number {
+	font-size: calc(var(--h) * 0.3);
+	transform: rotateZ(12deg);
+}
+.score-text {
+	font-size: calc(var(--h) * 0.1);
+	transform: translateX(calc(var(--h) * -0.1)) rotateZ(12deg);
+}
+body[data-phase="game-end"] .score {
+	display: block;
+}
 footer {
 	flex: 0 0 calc(var(--h) * 0.05);
 	overflow: hidden;

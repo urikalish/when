@@ -91,6 +91,39 @@ export class UiService {
 		}
 	}
 
+	static showScore(score: number) {
+		const scoreElm = document.getElementById('score');
+		const scoreNumberElm = document.getElementById('score-number');
+		if (scoreNumberElm) {
+			scoreNumberElm.textContent = score.toString();
+		}
+		const scoreTextElm = document.getElementById('score-text');
+		if (scoreTextElm) {
+			if (score >= 95) {
+				scoreTextElm.textContent = 'מעולה!!!';
+			} else if (score >= 90) {
+				scoreTextElm.textContent = 'טוב מאוד!!';
+			} else if (score >= 85) {
+				scoreTextElm.textContent = 'כמעט טוב מאוד!';
+			} else if (score >= 75) {
+				scoreTextElm.textContent = 'טוב';
+			} else if (score >= 65) {
+				scoreTextElm.textContent = 'כמעט טוב';
+			} else if (score >= 60) {
+				scoreTextElm.textContent = 'מספיק';
+			} else {
+				scoreTextElm.textContent = 'נכשל';
+			}
+			if (scoreElm) {
+				if (score >= 85) {
+					scoreElm.classList.add('success');
+				} else if (score < 60) {
+					scoreElm.classList.add('failure');
+				}
+			}
+		}
+	}
+
 	static init(config: Config, onClickSubmit: (year: number) => void, onClickNext: () => void) {
 		window.addEventListener('resize', UiService.setWidthAndHeight);
 		UiService.setWidthAndHeight();

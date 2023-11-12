@@ -52,6 +52,7 @@ export class GameService {
 		const game = GameService.game;
 		if (game.guesses.length === game.answers.length) {
 			GameService.setPhase(Phase.GAME_END);
+			UiService.showScore(Math.round(game.score));
 		} else {
 			GameService.goUserGuess();
 		}
