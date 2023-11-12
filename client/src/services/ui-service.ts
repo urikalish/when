@@ -1,4 +1,5 @@
 import { Answer } from '../model/answer';
+import { Config } from '../model/config';
 
 export class UiService {
 	static setWidthAndHeight() {
@@ -7,25 +8,35 @@ export class UiService {
 		document.documentElement.style.setProperty('--u', `${window.innerHeight / 100}px`);
 	}
 
-	static createUI(onChangeYearSelection, onClickSubmit, onClickNext) {
+	static createUI(config: Config, onClickSubmit, onClickNext) {
 		const rangeInputElm = document.getElementById('year-selector');
-		rangeInputElm?.addEventListener('input', () => {
-			const strYear = (rangeInputElm as HTMLInputElement)?.value;
-			if (strYear) {
-				onChangeYearSelection(parseInt(strYear));
-			}
-		});
+		if (rangeInputElm) {
+			rangeInputElm.setAttribute('min', config.yearMin.toString());
+			rangeInputElm.setAttribute('max', config.yearMax.toString());
+			rangeInputElm.setAttribute('value', config.yearDefault.toString());
+			rangeInputElm.addEventListener('input', () => {
+				const strYear = (rangeInputElm as HTMLInputElement)?.value;
+				if (strYear) {
+					UiService.updateSubmitButtonText(strYear);
+				}
+			});
+		}
 		const submitBtnElm = document.getElementById('submit-button');
-		submitBtnElm?.addEventListener('click', () => {
-			const strYear = (rangeInputElm as HTMLInputElement)?.value;
-			if (strYear) {
-				onClickSubmit(parseInt(strYear));
-			}
-		});
+		if (submitBtnElm) {
+			submitBtnElm.textContent = config.yearDefault.toString();
+			submitBtnElm.addEventListener('click', () => {
+				const strYear = (rangeInputElm as HTMLInputElement)?.value;
+				if (strYear) {
+					onClickSubmit(parseInt(strYear));
+				}
+			});
+		}
 		const nextBtnElm = document.getElementById('next-button');
-		nextBtnElm?.addEventListener('click', () => {
-			onClickNext();
-		});
+		if (nextBtnElm) {
+			nextBtnElm.addEventListener('click', () => {
+				onClickNext();
+			});
+		}
 	}
 
 	static markGamePhase(phase) {
@@ -39,7 +50,7 @@ export class UiService {
 		}
 	}
 
-	static updateSubmitButtonText(text) {
+	static updateSubmitButtonText(text: string) {
 		const btnElm = document.getElementById('submit-button');
 		if (btnElm) {
 			btnElm.textContent = text;
@@ -71,9 +82,9 @@ export class UiService {
 		}
 	}
 
-	static init(onChangeYearSelection, onClickSubmit, onClickNext) {
+	static init(config, onClickSubmit, onClickNext) {
 		window.addEventListener('resize', UiService.setWidthAndHeight);
 		UiService.setWidthAndHeight();
-		this.createUI(onChangeYearSelection, onClickSubmit, onClickNext);
+		this.createUI(config, onClickSubmit, onClickNext);
 	}
 }

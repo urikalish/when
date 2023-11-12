@@ -87,7 +87,7 @@ body[data-phase="user-guess"] .submit-button {
 .year-selector {
 	display: none;
 	margin-top: calc(var(--h) * 0.06);
-	width: 100%;
+	width: 95%;
 	animation: fade-in-animation 1s;
 }
 body[data-phase="user-guess"] .year-selector {
@@ -113,6 +113,7 @@ body[data-phase="show-answer"] .answer {
 	font-family: var(--font-family--serif);
 	font-size: calc(var(--h) * 0.04);
 	font-weight: 900;
+	margin-left: calc(var(--h) * 0.002);
 }
 .answer-title {
 	display: inline;

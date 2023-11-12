@@ -10,33 +10,42 @@ export class GameService {
 	static game: Game = new Game();
 
 	static setPhase(phase: Phase) {
-		GameService.game.phase = phase;
+		const game = GameService.game;
+		game.phase = phase;
 		UiService.markGamePhase(phase);
 	}
 
-	static goUserGuess() {
-		GameService.setPhase(Phase.USER_GUESS);
+	static updateScore() {
 		const game = GameService.game;
+		const index = game.guesses.length - 1;
+		const guess = game.guesses[index];
+		const answer = game.answers[index];
+		const maxScorePerGuess = game.config.maxScore / game.answers.length;
+		const maxDistance = Math.max(Math.abs(guess.year - game.config.yearMin), Math.abs(guess.year - game.config.yearMax));
+		const curDistance = Math.abs(answer.year - guess.year);
+		const distanceFraction = curDistance / maxDistance;
+		game.score -= distanceFraction * maxScorePerGuess;
+		//alert(game.score);
+	}
+
+	static goUserGuess() {
+		const game = GameService.game;
+		GameService.setPhase(Phase.USER_GUESS);
 		const answer = game.answers[game.guesses.length];
 		const guess = new Guess();
 		game.guesses.push(guess);
 		UiService.updateImageSource(`img/${answer.img}`);
 	}
 
-	static handleChangeYearSelection(value: number) {
-		const game = GameService.game;
-		const guess = game.guesses[game.guesses.length - 1];
-		guess.year = value;
-		UiService.updateSubmitButtonText(value);
-	}
-
-	static handleClickSubmit() {
+	static handleClickSubmit(year: number) {
 		const game = GameService.game;
 		const index = game.guesses.length - 1;
 		const guess = game.guesses[index];
 		guess.endTime = Date.now();
+		guess.year = year;
 		UiService.showAnswer(game.answers[index]);
 		GameService.setPhase(Phase.SHOW_ANSWER);
+		GameService.updateScore();
 	}
 
 	static handleClickNext() {
@@ -49,14 +58,18 @@ export class GameService {
 	}
 
 	static init() {
-		UiService.init(GameService.handleChangeYearSelection, GameService.handleClickSubmit, GameService.handleClickNext);
-		GameService.game.answers = CommonService.shuffleArray([...answers]);
+		const game = GameService.game;
+		UiService.init(game.config, GameService.handleClickSubmit, GameService.handleClickNext);
+		game.answers = CommonService.shuffleArray([...answers]);
 		GameService.setPhase(Phase.GAME_INIT);
 		// AnalyticsService.sendEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
 	}
 
 	static start() {
-		GameService.game.startTime = Date.now();
+		const game = GameService.game;
+		game.guesses = [];
+		game.score = game.config.maxScore;
+		game.startTime = Date.now();
 		GameService.goUserGuess();
 	}
 }
