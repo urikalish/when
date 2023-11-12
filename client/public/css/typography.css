@@ -1,4 +1,13 @@
+@font-face {
+	font-family: 'os_luizi_round_ffcregular';
+	src: url('../font/os_luizi_round-ffc-web.woff2') format('woff2'),
+	url('../font/os_luizi_round-ffc-web.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 :root {
 	--font-family--serif: "Noto Serif Hebrew", serif;
 	--font-family--sans: "Noto Sans Hebrew", sans-serif;
+	--font-family--script: os_luizi_round_ffcregular, "Noto Sans Hebrew", sans-serif;
 }
