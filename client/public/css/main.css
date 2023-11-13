@@ -58,8 +58,12 @@ main {
 	grid-template-columns: auto 1fr;
 }
 .image-panel {
-	display: flex;
+	display: none;
 	align-items: center;
+}
+body[data-phase="user-guess"] .image-panel,
+body[data-phase="show-answer"] .image-panel {
+	display: flex;
 }
 .image {
 	display: none;
@@ -72,10 +76,15 @@ body[data-phase="show-answer"] .image {
 	display: inline-block;
 }
 .action-panel {
+	display: none;
 	max-width: calc(var(--w) * 0.5);
 	padding: calc(var(--h) * 0.01) calc(var(--h) * 0.06) 0 0;
 	text-align: center;
 	overflow: hidden;
+}
+body[data-phase="user-guess"] .action-panel,
+body[data-phase="show-answer"] .action-panel {
+	display: block;
 }
 .submit-button {
 	display: none;
@@ -151,7 +160,8 @@ body[data-phase="show-answer"] .next-button {
 	display: none;
 	position: fixed;
 	left: 50%;
-	transform: translateX(-50%);
+	top: 40%;
+	transform: translateX(-50%) translateY(-50%);
 	color: var(--color--blue--dark);
 	font-family: var(--font-family--script);
 	animation: fade-in-animation 1s;
