@@ -163,7 +163,6 @@ body[data-phase="show-answer"] .next-button {
 }
 .score-number {
 	font-size: calc(var(--h) * 0.3);
-	transform: rotateZ(12deg);
 }
 .score-text {
 	font-size: calc(var(--h) * 0.1);
