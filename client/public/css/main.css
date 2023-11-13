@@ -150,7 +150,8 @@ body[data-phase="show-answer"] .next-button {
 .score {
 	display: none;
 	position: fixed;
-	left: calc(var(--w) * 0.5);
+	left: 50%;
+	transform: translateX(-50%);
 	color: var(--color--blue--dark);
 	font-family: var(--font-family--script);
 	animation: fade-in-animation 1s;
